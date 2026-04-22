@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 #container {}
 
 #container button {
@@ -17,3 +23,45 @@
     transform: rotate(15deg) scale(1.2);
 }
 
+#output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ed3e3e;
+    font-size: 3.8rem;
+    color: white;
+    padding: 50px 0;
+}
+
+#selections {
+    display: flex;
+    gap: 50px;
+    height: 280px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#selections div {
+    font-size: 150px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#playerSelection {
+    transform: rotate(90deg) scaleX(-1);
+}
+
+#cpuSelection {
+    transform: rotate(-90deg);
+}
+
+#winner {
+    font-weight: 800;
+    height: 150px;
+    align-content: center;
+}
