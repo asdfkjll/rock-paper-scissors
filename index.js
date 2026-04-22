@@ -51,24 +51,10 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    let options = {
-	1: "✊",
-	2: "✋",
-	3: "✌️",
-    }
-    let humanSelection = null;
-    let computerSelection = null;
+// ui
+//
 
-    for (let i = 1; i <= rounds; i++) {
-	humanSelection = getHumanChoice();
-	computerSelection = getComputerChoice();
-	winner = playRound(humanSelection, computerSelection);
 
-	console.log(`Player's choice: ${options[humanSelection]}, CPU's choice: ${options[computerSelection]}, Winner: ${winner}, Round: ${i}`)
-    }
 
-    console.log(`Player's final score: ${humanScore}, CPU's final score: ${computerScore}`)
-}
 
-playGame()
+

@@ -1,0 +1,19 @@
+#container {}
+
+#container button {
+    background: none;
+    border: none;
+    padding: 20px;
+    font-size: 80px;
+    transition: 0.18s;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+#container button:hover {
+    background: #45507c;
+    cursor: pointer;
+    transform: rotate(15deg) scale(1.2);
+}
+
