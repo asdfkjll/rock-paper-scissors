@@ -4,6 +4,12 @@ let humanScore = 0
 let computerScore = 0
 const rounds = 5
 
+const options = {
+    1: "rock",
+    2: "paper",
+    3: "scissors",
+}
+
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3)
 
@@ -54,6 +60,28 @@ function playRound(humanChoice, computerChoice) {
 // ui
 //
 
+container.addEventListener("click", (event) => {
+    const targetId = event.target.id
+    let humanChoice = null
+    let computerChoice = getComputerChoice()
+
+    switch(targetId) {
+	case "rock":
+	    humanChoice = 1 
+	    playRound(humanChoice, computerChoice)
+	    break
+	case "paper":
+	    humanChoice = 2 
+	    playRound(humanChoice, computerChoice)
+	    break
+	case "scissors":
+	    humanChoice = 3 
+	    playRound(humanChoice, computerChoice)
+	    break
+    }
+
+    console.log(humanChoice, computerChoice)
+})
 
 
 
