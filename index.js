@@ -2,7 +2,7 @@ console.log("hello world")
 
 let humanScore = 0
 let computerScore = 0
-let rounds = 5
+const rounds = 5
 
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3)
@@ -17,7 +17,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = prompt("Type your choose: rock, paper, or scissors").toLowerCase()
+    const choice = prompt("Type your choose: rock, paper, or scissors").toLowerCase()
 
     if (choice === "rock") {
 	return 1
@@ -32,8 +32,13 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    let exception = (((humanChoice === 1) && (computerChoice === 3)) || ((humanChoice === 3) && (computerChoice === 1)))
-    let result = exception ? (humanChoice - computerChoice)*(-1) : (humanChoice - computerChoice)
+    const exception = (((humanChoice === 1) && 
+	(computerChoice === 3)) || 
+	((humanChoice === 3) && 
+	(computerChoice === 1)))
+    const result = exception ? 
+	(humanChoice - computerChoice)*(-1) : 
+	(humanChoice - computerChoice)
 
     if (result > 0) {
 	humanScore += 1
@@ -52,8 +57,8 @@ function playGame() {
 	2: "✋",
 	3: "✌️",
     }
-    let humanSelection = " ";
-    let computerSelection = " ";
+    let humanSelection = null;
+    let computerSelection = null;
 
     for (let i = 1; i <= rounds; i++) {
 	humanSelection = getHumanChoice();
@@ -62,6 +67,8 @@ function playGame() {
 
 	console.log(`Player's choice: ${options[humanSelection]}, CPU's choice: ${options[computerSelection]}, Winner: ${winner}, Round: ${i}`)
     }
+
+    console.log(`Player's final score: ${humanScore}, CPU's final score: ${computerScore}`)
 }
 
 playGame()
