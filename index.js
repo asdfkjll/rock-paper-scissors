@@ -5,36 +5,19 @@ let computerScore = 0
 const rounds = 5
 
 const options = {
-    1: "rock",
-    2: "paper",
-    3: "scissors",
+    "rock": 1,
+    "paper": 2,
+    "scissors": 3,
 }
 
 function getComputerChoice() {
-    let random = Math.floor(Math.random() * 3)
-
-    if (random === 0) {
-	return 1 
-    } else if (random === 1) {
-	return 2
-    } else {
-	return 3 
-    }
+    let random = Math.floor(Math.random() * 3) + 1
+    return random 
 }
 
 function getHumanChoice() {
     const choice = prompt("Type your choose: rock, paper, or scissors").toLowerCase()
-
-    if (choice === "rock") {
-	return 1
-    } else if (choice === "paper") {
-	return 2
-    } else if (choice === "scissors") {
-	return 3
-    } else {
-	alert("invalid input")
-	return getHumanChoice()
-    }
+    return options[choice]
 }
 
 function playRound(humanChoice, computerChoice) {
