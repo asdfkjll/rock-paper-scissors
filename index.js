@@ -7,13 +7,19 @@ const options = { "rock": 1, "paper": 2, "scissors": 3  }
 const options_emojis = { 0: "🥊", 1: "✊", 2: "✋", 3: "✌️"  }
 
 function getComputerChoice() {
-    let random = Math.floor(Math.random() * 3) + 1
-    return random 
+    let computerChoice = Math.floor(Math.random() * 3) + 1
+    return computerChoice 
 }
 
-function getHumanChoice() {
-    const choice = prompt("Type your choose: rock, paper, or scissors").toLowerCase()
-    return options[choice]
+function getHumanChoice(choice) {	
+    switch(choice) {
+	case "rock":
+	    return 1 
+	case "paper":
+	    return 2 
+	case "scissors":
+	    return 3 
+    }
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -39,53 +45,41 @@ function playRound(humanChoice, computerChoice) {
 // ui
 //
 
+function showResultUI(humanChoice, computerChoice, roundResult) {
+    playerSelection.classList.add("player_getting_ready")
+    cpuSelection.classList.add("cpu_getting_ready")
+    playerSelection.textContent = options_emojis[0]
+    cpuSelection.textContent = options_emojis[0]
+    winner.textContent = "Get Ready"
+
+    input.classList.add("hide")
+
+    let count = 3;
+
+    const timer = setInterval(() => {
+	winner.textContent = count
+
+	if (count === 0) {
+	    clearInterval(timer) 
+	    playerSelection.classList.remove("player_getting_ready")
+	    cpuSelection.classList.remove("cpu_getting_ready")
+	    input.classList.remove("hide")
+	    playerSelection.textContent = options_emojis[humanChoice]
+	    cpuSelection.textContent = options_emojis[computerChoice]
+	    winner.textContent = roundResult
+	}
+
+	count--;
+    }, 1000);
+}
+
 input.addEventListener("click", (event) => {
     const targetId = event.target.id
 
     if(targetId !== "input") {
-	let humanChoice = null
+	let humanChoice = getHumanChoice(targetId) 
 	let computerChoice = getComputerChoice()
-
-	switch(targetId) {
-	    case "rock":
-		humanChoice = 1 
-		break
-	    case "paper":
-		humanChoice = 2 
-		break
-	    case "scissors":
-		humanChoice = 3 
-		break
-	}
-
 	const roundResult = playRound(humanChoice, computerChoice)
-
-	playerSelection.classList.add("player_getting_ready")
-	cpuSelection.classList.add("cpu_getting_ready")
-	playerSelection.textContent = options_emojis[0]
-	cpuSelection.textContent = options_emojis[0]
-	winner.textContent = "Get Ready"
-
-	let count = 3;
-
-	const timer = setInterval(() => {
-	    console.log(count);
-	    winner.textContent = count
-
-	    if (count === 0) {
-	    clearInterval(timer); // Stops the timer
-	    playerSelection.classList.remove("player_getting_ready")
-	    cpuSelection.classList.remove("cpu_getting_ready")
-	    playerSelection.textContent = options_emojis[humanChoice]
-	    cpuSelection.textContent = options_emojis[computerChoice]
-	    winner.textContent = roundResult
-	    }
-
-	    count--;
-	}, 1000);
+	showResultUI(humanChoice, computerChoice, roundResult)
     } 
 })
-
-
-
-
