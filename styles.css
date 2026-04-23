@@ -54,7 +54,8 @@ body {
     height: clamp(70px, 20vw, 150px);
 }
 
-#input button:hover {
+#input button:hover,
+#input button:active {
     background: #45507c;
     color: white;
     transform: scale(1.1) rotate(10deg);
