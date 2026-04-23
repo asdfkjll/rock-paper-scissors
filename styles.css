@@ -21,6 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 /* Title - Fluid scaling between 2.5rem and 5rem */
@@ -113,6 +114,10 @@ body {
     margin-top: 1rem;
     text-align: center;
     letter-spacing: 2px;
+}
+
+#round {
+    font-size: clamp(1rem, 5vw, 2rem);
 }
 
 @keyframes player_getting_ready {
