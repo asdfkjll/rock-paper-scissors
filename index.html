@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rock Paper and Scissors</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h1 class="title">Rock Paper and Scissors</h1>
+    <main class="game-wrapper">
+        <h1 class="title">Rock Paper and Scissors</h1>
 
-    <div class="container" id="input">
-	<button id="rock">✊</button>
-	<button id="paper">✋</button>
-	<button id="scissors">✌️</button>
-    </div>
+        <div class="container" id="input">
+            <button id="rock" aria-label="rock">✊</button>
+            <button id="paper" aria-label="paper">✋</button>
+            <button id="scissors" aria-label="scissors">✌️</button>
+        </div>
 
-    <div class="container" id="output">
-	<div id="selections">
-	    <div id="playerSelection"></div>
-	    <div id="cpuSelection"></div>
-	</div>
-	<div id="winner"></div>
-    </div>
-
+        <div class="container" id="output">
+            <div id="selections">
+                <div id="playerSelection"></div>
+                <div id="cpuSelection"></div>
+            </div>
+            <div id="winner"></div>
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
-
 </html>

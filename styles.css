@@ -1,64 +1,91 @@
-
+/* Reset & Base Styles */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.title {
-    font-size: 3.2rem;
-    text-align: center;
+body {
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    background-color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.container {
+.game-wrapper {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Title - Fluid scaling between 2.5rem and 5rem */
+.title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    text-align: center;
+    padding: 1rem;
+    line-height: 1;
+}
+
+/* Input Section */
+#input {
+    display: flex;
     justify-content: center;
+    gap: 10px;
+    padding: 1rem 0;
 }
 
 #input button {
     background: none;
     border: none;
-    padding: 20px;
-    font-size: 80px;
-    transition: 0.18s;
-    width: 150px;
-    height: 150px;
+    font-size: clamp(3rem, 12vw, 5rem); /* Scales icons based on screen width */
+    cursor: pointer;
+    transition: transform 0.18s ease;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(70px, 20vw, 150px);
+    height: clamp(70px, 20vw, 150px);
 }
 
 #input button:hover {
     background: #45507c;
-    cursor: pointer;
-    transform: rotate(15deg) scale(1.2);
+    color: white;
+    transform: scale(1.1) rotate(10deg);
 }
 
+/* Output Area (The Red Section) */
 #output {
-    flex-direction: column;
-    background: #ed3e3e;
-    font-size: 3.8rem;
+    flex-grow: 1; /* Makes the red area fill the rest of the screen */
+    background: #630505;
+    background: radial-gradient(circle, rgb(230, 70, 70) 0%, rgb(240, 17, 61) 100%);
     color: white;
-    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
 }
 
 #selections {
     display: flex;
-    gap: 0;
-    height: 280px;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    max-width: 800px;
 }
 
 #selections div {
-    font-size: 150px;
-    width: 50%;
-    height: 100%;
+    font-size: clamp(5rem, 25vw, 10rem); /* Dynamic emoji sizing */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 200px;
 }
 
+/* Rotations */
 #playerSelection {
     transform: rotate(90deg) scaleX(-1);
 }
@@ -67,8 +94,29 @@
     transform: rotate(-90deg);
 }
 
+.getting_ready {
+    animation: getting_ready 1s ease infinite;
+}
+
+/* Winner Text */
 #winner {
+    font-size: clamp(2rem, 10vw, 4rem);
     font-weight: 800;
-    height: 150px;
-    align-content: center;
+    margin-top: 1rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+@keyframes getting_ready {
+    0% {
+	transform: rotate(90deg); 
+    }
+}
+
+/* Desktop Specific Adjustments */
+@media (min-width: 768px) {
+    #input {
+        gap: 40px;
+        padding: 2rem 0;
+    }
 }
