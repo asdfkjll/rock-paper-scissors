@@ -4,7 +4,7 @@ let humanScore = 0
 let computerScore = 0
 const rounds = 5
 const options = { "rock": 1, "paper": 2, "scissors": 3  }
-const options_emojis = { 1: "✊", 2: "✋", 3: "✌️"  }
+const options_emojis = { 0: "🥊", 1: "✊", 2: "✋", 3: "✌️"  }
 
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3) + 1
@@ -59,9 +59,30 @@ input.addEventListener("click", (event) => {
 	}
 
 	const roundResult = playRound(humanChoice, computerChoice)
-	playerSelection.textContent = options_emojis[humanChoice]
-	cpuSelection.textContent = options_emojis[computerChoice]
-	winner.textContent = roundResult
+
+	playerSelection.classList.add("player_getting_ready")
+	cpuSelection.classList.add("cpu_getting_ready")
+	playerSelection.textContent = options_emojis[0]
+	cpuSelection.textContent = options_emojis[0]
+	winner.textContent = "Get Ready"
+
+	let count = 3;
+
+	const timer = setInterval(() => {
+	    console.log(count);
+	    winner.textContent = count
+
+	    if (count === 0) {
+	    clearInterval(timer); // Stops the timer
+	    playerSelection.classList.remove("player_getting_ready")
+	    cpuSelection.classList.remove("cpu_getting_ready")
+	    playerSelection.textContent = options_emojis[humanChoice]
+	    cpuSelection.textContent = options_emojis[computerChoice]
+	    winner.textContent = roundResult
+	    }
+
+	    count--;
+	}, 1000);
     } 
 })
 

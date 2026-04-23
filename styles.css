@@ -87,15 +87,19 @@ body {
 
 /* Rotations */
 #playerSelection {
-    transform: rotate(90deg) scaleX(-1);
+    transform: rotate(90deg) scaleX(-1); 
 }
 
 #cpuSelection {
     transform: rotate(-90deg);
 }
 
-.getting_ready {
-    animation: getting_ready 1s ease infinite;
+.player_getting_ready {
+    animation: player_getting_ready 0.8s ease infinite;
+}
+
+.cpu_getting_ready {
+    animation: cpu_getting_ready 0.8s ease infinite;
 }
 
 /* Winner Text */
@@ -107,9 +111,55 @@ body {
     letter-spacing: 2px;
 }
 
-@keyframes getting_ready {
+@keyframes player_getting_ready {
     0% {
-	transform: rotate(90deg); 
+	transform: 
+	rotate(30deg)
+	/* scaleX(-1) */
+	translate(0, 0)
+	; 
+    }
+    
+    50% {
+	transform: 
+	rotate(90deg) 
+	/* scaleX(-1) */ 
+	translate(0, -50px)
+	; 
+    }
+
+    100% {
+	transform: 
+	rotate(30deg)
+	/* scaleX(-1) */
+	translate(0, 0)
+	; 
+    }
+}
+
+@keyframes cpu_getting_ready {
+    0% {
+	transform: 
+	rotate(-30deg)
+	scaleX(-1)
+	translate(0, 0)
+	; 
+    }
+    
+    50% {
+	transform: 
+	rotate(-90deg) 
+	scaleX(-1)
+	translate(0, -50px)
+	; 
+    }
+
+    100% {
+	transform: 
+	rotate(-30deg)
+	scaleX(-1)
+	translate(0, 0)
+	; 
     }
 }
 
