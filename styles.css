@@ -1,12 +1,22 @@
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-#container {}
+.title {
+    font-size: 3.2rem;
+    text-align: center;
+}
 
-#container button {
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#input button {
     background: none;
     border: none;
     padding: 20px;
@@ -17,17 +27,14 @@
     border-radius: 50%;
 }
 
-#container button:hover {
+#input button:hover {
     background: #45507c;
     cursor: pointer;
     transform: rotate(15deg) scale(1.2);
 }
 
 #output {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background: #ed3e3e;
     font-size: 3.8rem;
     color: white;
@@ -36,7 +43,7 @@
 
 #selections {
     display: flex;
-    gap: 50px;
+    gap: 0;
     height: 280px;
     width: 100%;
     justify-content: center;
