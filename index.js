@@ -125,7 +125,6 @@ function getWinner() {
 
 input.addEventListener("click", (event) => {
     const targetId = event.target.id
-
     if(targetId !== "input" && rounds > 0) {
 	let humanChoice = getHumanChoice(targetId) 
 	let computerChoice = getComputerChoice()
